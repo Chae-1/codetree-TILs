@@ -9,7 +9,7 @@ public class Main {
         int a = s.length() - 1;
         while (n != 0) {
             System.out.print(s.charAt(a));
-            n--
+            n--;
         }
     }
 }
