@@ -5,7 +5,7 @@ public class Main {
         int n = sc.nextInt();
         int passScore = 80;
         if (n >= passScore) {
-            Sysetm.out.println("pass");
+            System.out.println("pass");
         } else {
             System.out.println(passScore - n + " more score");
         }
