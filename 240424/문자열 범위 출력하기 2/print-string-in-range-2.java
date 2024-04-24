@@ -5,11 +5,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String s = sc.nextLine();
         int n = sc.nextInt();
-        
-        int a = s.length() - 1;
-        while (n != 0) {
-            System.out.print(s.charAt(a--));
-            n--;
+        int size = s.length();
+        if (size > n) {
+            for (int i = s.length() - 1; i >= size - n; i--) {
+                System.out.print(s.charAt(i));
+            }
+        } else {
+            System.out.println(s);
         }
     }
 }
