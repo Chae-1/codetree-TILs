@@ -6,10 +6,10 @@ public class Main {
         String s = sc.next();
         int n = sc.nextInt();
         
-        int length = s.length();
-        for (int i = length - 1; i >= length - n; i--) {
-            System.out.print(s.charAt(i));
+        int a = s.length() - 1;
+        while (n != 0) {
+            System.out.print(s.charAt(a));
+            n--
         }
-
     }
 }
