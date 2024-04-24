@@ -6,5 +6,8 @@ public class Main {
         int n = sc.nextInt();
         int area = n * n;
         System.out.println(area);
+        if (n < 5) {
+            System.out.println("tiny");
+        }
     }
 }
