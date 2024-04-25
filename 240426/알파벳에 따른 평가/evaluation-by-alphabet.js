@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-let s = fs.readFileSync(0).toString();
+let s = fs.readFileSync(0).toString().trim();
 
 if (s === "S") {
     console.log("Superior");
@@ -8,7 +8,7 @@ if (s === "S") {
     console.log("Excellent");
 } else if (s === "B") {
     console.log("Good");
-} else if ("C" === s) {
+} else if (s === "C") {
     console.log("Usually");
 } else if (s === "D") {
     console.log("Effort");
