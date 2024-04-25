@@ -2,4 +2,4 @@ let a = 7;
 let b = 23;
 let c = 30;
 
-console.log("%d + %d = %d", a, b, c);
+console.log(`${a} + ${b} = ${c}`);
