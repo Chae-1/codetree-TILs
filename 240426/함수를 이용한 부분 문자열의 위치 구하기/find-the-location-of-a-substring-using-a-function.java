@@ -13,12 +13,11 @@ public class Main {
     }
 
     public static int findSubSringIndex() {
-        int left = 0;
-        while (left < s.length() - substring.length() + 1) {
+        
+        for (int left = 0; left < s.length() - substring.length() + 1; left++) {
             if (isMatch(left)) {
                 return left;
             }
-            left++;
         }
         return -1;
     }
