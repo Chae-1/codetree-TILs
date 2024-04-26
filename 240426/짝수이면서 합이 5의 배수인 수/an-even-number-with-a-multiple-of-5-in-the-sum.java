@@ -12,11 +12,12 @@ public class Main {
     }
 
     public static boolean isEvenAndEachDigitSumDivideFive(int n) {
+        int temp = n;
         int eachSum = 0;
-        while (n != 0) {
-            eachSum += n % 10;
-            n /= 10;
+        while (temp != 0) {
+            eachSum += temp % 10;
+            temp /= 10;
         }
-        return n % 2 == 0 || eachSum % 5 == 0;
+        return n % 2 == 0 && eachSum % 5 == 0;
     }
 }
