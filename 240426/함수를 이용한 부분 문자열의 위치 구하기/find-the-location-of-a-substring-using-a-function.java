@@ -20,6 +20,7 @@ public class Main {
                 return left;
             }
             left = matchCount > 0 ? left + matchCount : left + 1;
+            matchCount = 0;
         }
         return -1;
     }
