@@ -8,25 +8,18 @@ public class Main {
         System.out.println(mcm(n, m));
     }
 
+    public static int gcd(int a, int b) {
+        if (b == 0)
+            return a;
+            // 12 % 18
+            // 18, 12 % 18
+            // 18, 12
+            // 12, 6
+            // 6
+        return gcd(b, a % b);
+    }
+
     public static int mcm(int n, int m) {
-        int maximumMultiple = n * m;
-        int max = Math.max(n, m); // 18
-        int min = Math.min(n, m); // 12
-        
-        int start = min; // 12
-        int i = 1; 
-        while (start < maximumMultiple) {
-            if (start < max) {
-                start = min * ++i;
-            }
-
-            if (start % max == 0 && start % min == 0) {
-                return start;
-            }
-            
-            start = min * ++i;
-        }
-
-        return maximumMultiple;
+        return (n * m) / gcd(n, m); 
     }
 }
