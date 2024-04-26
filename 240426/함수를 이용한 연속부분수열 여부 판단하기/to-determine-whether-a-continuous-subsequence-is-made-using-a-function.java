@@ -29,7 +29,7 @@ public class Main {
         while (left < sequenceLength) {
             int count = 0;
             for (int i = 0; i < subsequence.length; i++) {
-                if (sequence[left] != subsequence[i]) {
+                if (sequence[left + i] != subsequence[i]) {
                     break;
                 }
                 count++;
