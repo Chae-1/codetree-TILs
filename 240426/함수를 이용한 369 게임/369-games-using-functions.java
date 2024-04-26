@@ -23,6 +23,7 @@ public class Main {
             int lastNum = n % 10;
             if (lastNum % 3 == 0)
                 return true;
+            n /= 10;
         }
         return false;
     }
