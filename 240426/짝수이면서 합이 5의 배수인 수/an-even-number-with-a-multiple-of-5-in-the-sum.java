@@ -17,6 +17,6 @@ public class Main {
             eachSum += n % 10;
             n /= 10;
         }
-        return n % 2 == 0 && eachSum % 5 == 0;
+        return n % 2 == 0 || eachSum % 5 == 0;
     }
 }
