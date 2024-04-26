@@ -21,7 +21,7 @@ public class Main {
     public static boolean isContainsThreeToNine(int n) {
         while (n != 0) {
             int lastNum = n % 10;
-            if (lastNum % 3 == 0)
+            if (lastNum != 0 && lastNum % 3 == 0)
                 return true;
             n /= 10;
         }
