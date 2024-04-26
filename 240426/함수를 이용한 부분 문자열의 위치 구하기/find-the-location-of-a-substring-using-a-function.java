@@ -14,7 +14,7 @@ public class Main {
 
     public static int findSubSringIndex() {
         int left = 0;
-        while (left < s.length()) {
+        while (left < s.length() - substring.length() + 1) {
             if (isMatch(left)) {
                 return left;
             }
