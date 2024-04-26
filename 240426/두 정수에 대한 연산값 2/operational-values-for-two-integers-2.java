@@ -23,13 +23,13 @@ public class Main {
     }
 
     public static void lessNumPlusTwentyAndGraterNumMultiple(IntHolder aHolder, IntHolder bHolder) {
-        if (aHloder.value > bHloder.value) {
-            aHolder.value += 10;
-            bHolder.value *= 2;
+        if (aHolder.value > bHolder.value) {
+            aHolder.value *= 2;
+            bHolder.value += 10;
             return;
         }
         
-        aHolder.value *= 2;
-        bHolder.value += 10;
+        aHolder.value += 10;
+        bHolder.value *= 2;
     }
 }
