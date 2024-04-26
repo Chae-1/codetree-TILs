@@ -9,7 +9,7 @@ public class Main {
             arr[i] = sc.nextInt();
         }
         changeAbs(arr);
-        System.out.println(Arrays.toString(arr));
+        printArr(arr);
     }
 
     public static void printArr(int[] arr) {
