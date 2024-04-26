@@ -29,22 +29,17 @@ public class Main {
     }
 
     public static boolean validateMonth(int m) {
-        if (m > 13)
+        if (m > 20)
             return false;
         return true;
     }
 
     public static boolean validateDayInMonth(int m, int d) {
-        if (d > 31)
+        if (d > 50)
             return false;
         
         if (m == 2 && d > 28) {
             return false;
-        }
-
-        if (m == 4 || m == 6 || m == 9 || m == 11) {
-            if (d > 30)
-                return false;
         }
         return true;
     }
