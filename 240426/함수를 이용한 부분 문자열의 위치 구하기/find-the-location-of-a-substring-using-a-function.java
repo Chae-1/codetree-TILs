@@ -3,7 +3,6 @@ import java.util.*;
 public class Main {
     static String s;
     static String substring;
-    static int matchCount = 0;
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
@@ -19,8 +18,7 @@ public class Main {
             if (isMatch(left)) {
                 return left;
             }
-            left = matchCount > 0 ? left + matchCount : left + 1;
-            matchCount = 0;
+            left++;
         }
         return -1;
     }
@@ -30,7 +28,6 @@ public class Main {
             if (s.charAt(left + i) != substring.charAt(i)) {
                 return false;
             }
-            matchCount++;
         }
         return true;
     }
