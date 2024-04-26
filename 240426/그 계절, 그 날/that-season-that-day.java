@@ -1,6 +1,6 @@
 import java.util.*;
 public class Main {
-        public static void main(String[] args) {
+public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
         int year = sc.nextInt();
@@ -16,7 +16,7 @@ public class Main {
     private static boolean validateDay(int year, int month, int day) {
         // 2월일 때만, 윤년인지 아닌지 판별
         if (month == 2) {
-            if (!isLeafYear(year)) {
+            if (isLeafYear(year)) {
                 return day <= 29;
             }
             return day <= 28;
@@ -39,9 +39,9 @@ public class Main {
 
         if (multipleFour && multipleHundred)
             return false;
-        
-        if (!multipleFour)
-            return false;
+
+        if (multipleFour)
+            return true;
 
         return false;
     }
