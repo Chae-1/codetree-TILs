@@ -38,9 +38,9 @@ public class Main {
             if (count == subsequence.length)
                 return true;
 
-            left++;
+            left = count > 0 ? left + count : left + 1;
         }
-        return true;
+        return false;
             
     }
 }
