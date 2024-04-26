@@ -34,13 +34,13 @@ public class Main {
         boolean multipleHundred = year % 100 == 0;
         boolean multipleFourHundred = year % 400 == 0;
 
-        if (!multipleFour)
-            return false;
-
         if (multipleFour && multipleFourHundred && multipleHundred)
             return true;
 
         if (multipleFour && multipleHundred)
+            return false;
+        
+        if (!multipleFour)
             return false;
 
         return false;
