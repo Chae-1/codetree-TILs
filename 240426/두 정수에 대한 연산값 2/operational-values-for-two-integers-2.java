@@ -19,7 +19,7 @@ public class Main {
         IntHolder bHolder = new IntHolder(b);
         lessNumPlusTwentyAndGraterNumMultiple(aHolder, bHolder);
 
-        System.out.println(aHolder.value + " " +bHolder.value)
+        System.out.println(aHolder.value + " " +bHolder.value);
     }
 
     public static void lessNumPlusTwentyAndGraterNumMultiple(IntHolder aHolder, IntHolder bHolder) {
