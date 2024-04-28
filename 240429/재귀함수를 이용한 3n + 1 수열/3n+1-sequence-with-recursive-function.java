@@ -5,7 +5,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         sequence(n);
-        System.out.println(count);
+        System.out.println(sequence(n));
     }
 
     public static int sequence(int n) {
@@ -15,9 +15,7 @@ public class Main {
 
         if (n % 2 == 0) {
             return sequence(n / 2) + 1;
-        } 
-        
-        if (n % 2 == 1) {
+        } else {
             return sequence(n * 3 + 1) + 1;
         }   
 
