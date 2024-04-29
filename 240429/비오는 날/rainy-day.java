@@ -1,71 +1,67 @@
 import java.util.*;
 public class Main {
-    static class WeatherDia {
-        String date;
-        String day;
-        String weather;
-
-        public WeatherDia(String date, String day, String weather) {
-            this.date = date;
-            this.day = day;
-            this.weather = weather;
-        }
-    }
-
-    public static void main(String[] args) {
-        // 여기에 코드를 작성해주세요. 
+        public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        WeatherDia[] weatherDias = new WeatherDia[n];
-        for(int i = 0; i < n; i++) {
+        WeatherInfo[] weatherInfos = new WeatherInfo[n];
+        for (int i = 0; i < n; i++) {
             String date = sc.next();
             String day = sc.next();
             String weather = sc.next();
-            weatherDias[i] = new WeatherDia(date, day, weather);
+            weatherInfos[i] = new WeatherInfo(date, weather, day);
         }
 
-        WeatherDia printDia = weatherDias[0];
+        WeatherInfo info = weatherInfos[0];
         for (int i = 1; i < n; i++) {
-            if (isRainDate(printDia, weatherDias[i])) {
-                printDia = weatherDias[i];
+            if (isSwap(info, weatherInfos[i])) {
+                info = weatherInfos[i];
             }
         }
-        System.out.println(printDia.date + " " + printDia.day + " " + printDia.weather);
-    
+        System.out.println(info.date + " " + info.day + " " + info.weather);
     }
 
-    private static boolean isRainDate(WeatherDia printDia, WeatherDia weatherDia) {
-        
-        if (!printDia.weather.equals("Rain")) {
+    private static boolean isSwap(WeatherInfo info, WeatherInfo weatherInfo) {
+        if (!info.weather.equals("Rain")) {
             return true;
         }
 
-        if (!weatherDia.weather.equals("Rain")) {
+        if (!weatherInfo.weather.equals("Rain")) {
             return false;
         }
-        
-        String[] printDate = printDia.date.split("-");
-        int printYear = Integer.parseInt(printDate[0]);
-        int printMonth = Integer.parseInt(printDate[1]);
-        int printDay = Integer.parseInt(printDate[2]);
-                
-        String[] date = weatherDia.date.split("-");
+
+        String[] prevDate = weatherInfo.date.split("-");
+        int prevYear = Integer.parseInt(prevDate[0]);
+        int prevMonth = Integer.parseInt(prevDate[1]);
+        int prevDay = Integer.parseInt(prevDate[2]);
+
+        String[] date = weatherInfo.date.split("-");
         int year = Integer.parseInt(date[0]);
         int month = Integer.parseInt(date[1]);
         int day = Integer.parseInt(date[2]);
-        
-        if (printYear > year) {
-            return false; 
-        }
 
-        if (printMonth > month) {
-            return false;
+        if (prevYear > year) {
+            return true;
+        } else if (prevYear == year) {
+            if (prevMonth > month) {
+                return true;
+            } else if (prevMonth == month) {
+                if (prevDay > day) {
+                    return true;
+                }
+            }
         }
-
-        if (printDay > day) {
-            return false;
-        }
-
-        return true;
+        return false;
     }
+
+    static class WeatherInfo {
+        String date;
+        String weather;
+        String day;
+
+        public WeatherInfo(String date, String weather, String day) {
+            this.date = date;
+            this.weather = weather;
+            this.day = day;
+        }
+    }    
 }
