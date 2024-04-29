@@ -39,6 +39,10 @@ public class Main {
         if (!printDia.weather.equals("Rain")) {
             return true;
         }
+
+        if (!weatherDia.weather.equals("Rain")) {
+            return false;
+        }
         
         String[] printDate = printDia.date.split("-");
         int printYear = Integer.parseInt(printDate[0]);
