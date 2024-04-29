@@ -20,6 +20,10 @@ public class Main {
     }
 
     private static boolean canMakeSameLetter(char[] s1Array, char[] s2Array) {
+        if (s1Array.length != s2Array.length) {
+            return false;
+        }
+        
         for (int i = 0; i < s1Array.length; i++) {
             if (s1Array[i] != s2Array[i])
                 return false;
