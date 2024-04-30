@@ -7,7 +7,7 @@ public class Main {
         int cnt = 0;
         while (true) {
             if (n < 2) {
-                arr[cnt++] = sc.nextInt();
+                arr[cnt++] = n;
                 break;
             }
             
@@ -15,7 +15,7 @@ public class Main {
             n /= 2;
         }
 
-        for (int i = count - 1; i >= 0; i++) {
+        for (int i = cnt - 1; i >= 0; i--) {
             System.out.print(arr[i]);
         }
     }
