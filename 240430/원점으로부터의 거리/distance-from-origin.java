@@ -16,7 +16,7 @@ public class Main {
             int sumThis = this.x * this.x + this.y * this.y;
             int sumP = p.x * p.x + p.y * p.y;
             if (sumThis == sumP)
-                return this.no - p.no;
+                return p.no - this.no;
             return sumThis - sumP;
         }
     }
