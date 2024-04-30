@@ -16,6 +16,11 @@ public class Main {
         for (int i = count - 1; i >= 0; i--) {
             result += arr[i];
         }
-        System.out.println(result);
+
+        if (n != 0) {
+            System.out.println(result);
+        } else {
+            System.out.println(0);
+        }
     }
 }
