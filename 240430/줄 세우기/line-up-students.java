@@ -26,7 +26,7 @@ public class Main {
         }
         Arrays.sort(students, (s1, s2) -> {
             if (s1.h == s2.h) {
-                return s2.w - s2.w;
+                return s2.w - s1.w;
             }
             return s2.h - s1.h;
         });
