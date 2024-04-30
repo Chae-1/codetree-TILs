@@ -12,15 +12,14 @@ public class Main {
             n /= 2;
         }
 
-        String result = "";
-        for (int i = count - 1; i >= 0; i--) {
-            result += arr[i];
-        }
 
-        if (n != 0) {
-            System.out.println(result);
-        } else {
-            System.out.println(0);
+        if (count == 0) {
+            System.out.println("0");
         }
+        
+        for (int i = count - 1; i >= 0; i--) {
+            System.out.print(arr[i]);
+        }
+       
     }
 }
