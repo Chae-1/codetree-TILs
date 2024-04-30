@@ -12,6 +12,6 @@ public class Main {
         int c = sc.nextInt(); // 분
 
         int result = (a - startDay) * 1440 + (b - startHour) * 60 + (c - startMin);
-        System.out.println(result);
+        System.out.println(result < -1 ? -1 : result);
     }
 }
