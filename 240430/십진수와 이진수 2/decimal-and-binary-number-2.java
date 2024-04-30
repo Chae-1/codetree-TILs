@@ -1,7 +1,7 @@
 import java.util.*;
 public class Main {
-public static int toBinary(int n) {
-        int[] arr = new int[20];
+    public static long toBinary(int n) {
+        int[] arr = new int[30];
         int cnt = 0;
         while (true) {
             if (n < 2) {
@@ -12,12 +12,13 @@ public static int toBinary(int n) {
             n /= 2;
         }
 
-        int result = 0;
+        long result = 0;
         for (int i = cnt - 1; i >= 0; i--) {
             result = result * 10 + arr[i];
         }
         return result;
     }
+
 
     public static int toDecimal(int b) {
         int result = 0;
