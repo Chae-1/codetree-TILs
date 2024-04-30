@@ -13,10 +13,10 @@ public class Main {
 
         @Override
         public int compareTo(Point p) {
-            int sumThis = this.x * this.x + this.y * this.y;
-            int sumP = p.x * p.x + p.y * p.y;
+            int sumThis = Math.abs(this.x)  + Math.abs(this.y);
+            int sumP = Math.abs(p.x) + Math.abs(p.y);
             if (sumThis == sumP)
-                return p.no - this.no;
+                return this.no - p.no;
             return sumThis - sumP;
         }
     }
