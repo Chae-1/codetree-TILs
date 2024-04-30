@@ -12,9 +12,9 @@ public class Main {
             n /= 2;
         }
 
-        int result = 0;
+        String result = "";
         for (int i = count - 1; i >= 0; i--) {
-            result = result * 10 + arr[i];
+            result += arr[i];
         }
         System.out.println(result);
     }
