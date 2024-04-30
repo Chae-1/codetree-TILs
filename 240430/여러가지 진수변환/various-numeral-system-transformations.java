@@ -13,7 +13,7 @@ public class Main {
                 break;
             }
 
-            arr[cnt++] = n % 4;
+            arr[cnt++] = n % b;
             n /= b;
         }
 
