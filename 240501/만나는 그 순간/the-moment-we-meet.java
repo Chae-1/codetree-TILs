@@ -12,12 +12,14 @@ public class Main {
        int n = sc.nextInt();
        int m = sc.nextInt();
        int time = 0;
+       int stopCount = 0;
        for (int i = 0; i < n; i++) {
             String direc = sc.next();
             int step = sc.nextInt();
             int dir = direc.equals("L") ? -1 : 1;
             for (int j = 0; j < step; j++) {
                 A[++time] = A[time - 1] + dir;
+                stopCount++;
             }
         }
         
@@ -31,7 +33,7 @@ public class Main {
             }
         }
 
-        for (int i = 1; i < 2_000_001; i++) {
+        for (int i = 1; i < stopCount; i++) {
             if (A[i] == B[i]) {
                 System.out.println(i);
                 break; 
