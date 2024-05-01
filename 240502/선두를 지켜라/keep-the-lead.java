@@ -31,6 +31,7 @@ public class Main {
         }
         
         int[] diff = new int[time];
+
         for (int i = 1; i < time; i++) {
             diff[i] = A[i] - B[i];
         }
@@ -38,9 +39,15 @@ public class Main {
         // 현재 속도와 이전 속도의 곱이 음수면 선두가 바뀐다.
         int result = 0;
         for (int i = 2; i < time; i++) {
-            if (diff[i - 1] * diff[i] < 0) {
-                result++;
-            }           
+            if (diff[i - 1] < 0) {
+                if (diff[i] > 0) {
+                    result++;
+                }
+            } else {
+                if (diff[i] < 0) {
+                    result++;
+                }
+            }
         }
         System.out.println(result);
     }
