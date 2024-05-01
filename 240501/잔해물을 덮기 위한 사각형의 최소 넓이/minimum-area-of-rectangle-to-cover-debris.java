@@ -54,7 +54,7 @@ public class Main {
                 }
             }
         }
-        int result = (maxX - minX + 1) * (maxY - minY + 1);
+        int result = minX > maxX ? 0 : (maxX - minX + 1) * (maxY - minY + 1);
         System.out.println(result);
     }
 }
