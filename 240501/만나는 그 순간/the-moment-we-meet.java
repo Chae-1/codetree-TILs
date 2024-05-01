@@ -32,12 +32,12 @@ public class Main {
                 B[++time] = B[time - 1] + dir;
             }
         }
-
-        for (int i = 1; i < stopCount; i++) {
+        System.out.println();
+        for (int i = 1; i <= stopCount; i++) {
             if (A[i] == B[i]) {
                 System.out.println(i);
             } else {
-                if (i - 1 == stopCount) {
+                if (i == stopCount) {
                     System.out.println(-1);
                 }
             }
