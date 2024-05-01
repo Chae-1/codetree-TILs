@@ -36,7 +36,10 @@ public class Main {
         for (int i = 1; i < stopCount; i++) {
             if (A[i] == B[i]) {
                 System.out.println(i);
-                break; 
+            } else {
+                if (i - 1 == stopCount) {
+                    System.out.println(-1);
+                }
             }
         }
     }
