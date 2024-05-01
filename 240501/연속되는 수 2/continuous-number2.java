@@ -14,13 +14,13 @@ public class Main {
         // 인덱스 1부터 시작한다. 그렇기 때문에 count가 1임은 보장한다.
         for (int i = 1; i < n; i++) {
             if (sequence[i - 1] != sequence[i]) {
-                if (maxCount < count)
-                    maxCount = count;
+                maxCount = Math.max(count, maxCount);
                 count = 1;
                 continue;
             }
             count++;
         }
+        maxCount = Math.max(count, maxCount);
         System.out.println(maxCount);
     }
 }
