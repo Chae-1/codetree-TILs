@@ -49,6 +49,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             commands.add(new Command(Integer.parseInt(st.nextToken()), st.nextToken()));
         }
+        map.put(0, 1);
     }
 
     private static void solve() {
@@ -60,13 +61,13 @@ public class Main {
     private static void move(Command command) {
         if (command.direct.equals("R")) {
             for (int i = 0; i < command.n; i++) {
-                location.x++;
                 map.put(location.x, map.getOrDefault(location.x, 0) + 1);
+                location.x++;
             }
         } else {
             for (int i = 0; i < command.n; i++) {
-                location.x--;
                 map.put(location.x, map.getOrDefault(location.x, 0) + 1);
+                location.x--;
             }
         }
     }
