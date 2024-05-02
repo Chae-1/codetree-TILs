@@ -24,10 +24,10 @@ public class Main {
                 // dir 방향으로 한칸 이동
                 x += dx[dir];
                 y += dy[dir];
-                if (x == 0 && y == 0) {
-                    ans = elapsedTime;
-                    break;
-                }
+            }
+            if (x == 0 && y == 0) {
+                ans = elapsedTime;
+                break;
             }
         }
 
