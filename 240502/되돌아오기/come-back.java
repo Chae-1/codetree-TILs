@@ -5,7 +5,6 @@ public class Main {
     static int[] dx = {0, 0, 1, -1};
     static int[] dy = {1, -1, 0, 0};
     static int[][] arr;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -31,11 +30,11 @@ public class Main {
 
             for (int j = 0; j < dist; j++) {
                 arr[ny][nx] = time++;
-                if (i != 0 && ny == 1000 && nx == 1000 && firstTimeToZero == 0) {
-                    firstTimeToZero = arr[ny][nx];
-                }
                 nx += dx[dirNum];
                 ny += dy[dirNum];
+                if (i != 0 && ny == 1000 && nx == 1000 && firstTimeToZero == 0) {
+                    firstTimeToZero = time;
+                }
             }
         }
         System.out.println(firstTimeToZero);
