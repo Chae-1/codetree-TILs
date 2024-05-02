@@ -8,14 +8,14 @@ public class Main {
     static char[][] arr;
     static int x, y;
     static int dirNum;
-    static int ans = 0;
+    static int ans = 1;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         arr = new char[n][n];
 
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             String line = sc.next();
             for (int j = 0; j < line.length(); j++) {
                 arr[i][j] = line.charAt(j);
@@ -27,14 +27,25 @@ public class Main {
         findStartPosition(k, n);
         dirNum = k / 4; // 시작 방향
         while (inRange(x, y, n)) {
+            ans++;
             if (arr[y][x] == '\\') {
-                if (dirNum == 0 || dirNum == 2)
-                    
+                if (dirNum == 0 || dirNum == 2) {
+                    dirNum = (dirNum - 1 + 4) % 4;
+                } else {
+                    dirNum = (dirNum + 1) % 4;
+                }
             } else if (arr[y][x] == '/') {
-
+                if (dirNum == 0 || dirNum == 2) {
+                    dirNum = (dirNum + 1) % 4;
+                } else {
+                    dirNum = (dirNum - 1 + 4) % 4;
+                }
             }
+            x += dx[dirNum];
+            y += dy[dirNum];
         }
 
+        System.out.println(ans);
     }
 
     private static void findStartPosition(int k, int n) {
