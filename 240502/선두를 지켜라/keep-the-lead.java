@@ -44,8 +44,12 @@ public class Main {
         // lead 가 1이면 A가, 2이면 B가 앞서있다.
         int lead = diff[1] >= 0 ? 1 : 2;
         for (int i = 2; i < time; i++) {
-            int currentLead = diff[i] >= 0 ? 1 : 2;
             // 0인 경우는 lead가 바뀌지 않으니 체크 X
+            if (diff[i] == 0) {
+                continue;
+            }
+            
+            int currentLead = diff[i] >= 0 ? 1 : 2;
             if (currentLead != lead) {
                 result++;
                 lead = currentLead;
