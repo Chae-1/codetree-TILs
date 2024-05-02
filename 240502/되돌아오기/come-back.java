@@ -32,7 +32,7 @@ public class Main {
                 arr[ny][nx] = time++;
                 nx += dx[dirNum];
                 ny += dy[dirNum];
-                if (i != 0 && ny == 1000 && nx == 1000 && firstTimeToZero == 0) {
+                if (i != 0 && ny == 1000 && nx == 1000 && firstTimeToZero == -1) {
                     firstTimeToZero = time;
                 }
             }
