@@ -36,6 +36,6 @@ public class Main {
             if (arr[ny][nx] == 1)
                 count++;
         }
-        return count >= 3;
+        return count == 3;
     }
 }
