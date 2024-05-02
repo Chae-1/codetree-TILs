@@ -14,9 +14,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         arr = new char[n][n];
-
         for (int i = 0; i < n; i++) {
             String line = sc.next();
+            if (arr == null) {
+                arr = new char[n][line.length()];
+            }
             for (int j = 0; j < line.length(); j++) {
                 arr[i][j] = line.charAt(j);
             }
