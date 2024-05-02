@@ -17,7 +17,7 @@ public class Main {
             int v = sc.nextInt();
             int t = sc.nextInt();
             for (int j = 0; j < t; j++) {
-                A[time++] += v;
+                A[time++] = A[time - 1] + v;
             }
         }
 
@@ -26,7 +26,7 @@ public class Main {
             int v = sc.nextInt();
             int t = sc.nextInt();
             for (int j = 0; j < t; j++) {
-                B[time++] += v;
+                B[time++] = B[time - 1] + v;
             }
         }
 
@@ -41,17 +41,14 @@ public class Main {
         // diff가 음수이면 B가 앞서있다.
         // diff가 양수, 0이면 A가 앞서있다.
         // 0이면 판단하지 않는다.
-        boolean beforeResult = diff[1] < 0 ? true : false;
+        // lead 가 1이면 A가, 2이면 B가 앞서있다.
+        int lead = diff[1] >= 0 ? 1 : 2;
         for (int i = 2; i < time; i++) {
-            // diff가 0이면 방향이 바뀌지 않은 것이다.
-            if (diff[i] == 0) {
-                continue;
-            }
-
-            boolean currentResult = diff[i] < 0 ? true : false;
-            if (currentResult != beforeResult) {
+            int currentLead = diff[i] >= 0 ? 1 : 2;
+            // 0인 경우는 lead가 바뀌지 않으니 체크 X
+            if (currentLead != lead) {
                 result++;
-                beforeResult = currentResult;
+                lead = currentLead;
             }
         }
         System.out.println(result);
