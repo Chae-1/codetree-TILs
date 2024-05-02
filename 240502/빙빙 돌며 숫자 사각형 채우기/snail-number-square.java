@@ -11,9 +11,9 @@ public class Main {
         int nx = 0;
         int ny = 0;
         int dir = 0;
-        arr = new int[n][n];
-        for (int i = 1 ; i < n * m + 1; i++) {
-            arr[ny][nx] = i;
+        arr = new int[n][m];
+        for (int i = 0 ; i < n * m; i++) {
+            arr[ny][nx] = i+ 1;
             if (!canMove(nx + dx[dir], ny + dy[dir], m, n)) {
                 dir = (dir + 1) % 4;
             }
