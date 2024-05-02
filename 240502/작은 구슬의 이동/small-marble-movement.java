@@ -1,8 +1,7 @@
 import java.util.*;
 public class Main {
-    // L, U, D, R
     static int[] dc = new int[]{-1, 0, 0, 1};
-    static int[] dr = new int[]{0, 1, -1, 0};
+    static int[] dr = new int[]{0, -1, 1, 0};
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
@@ -34,9 +33,9 @@ public class Main {
                 r = nr;
                 c = nc;
             } else {
-                dirNum = 3 - dirNum; 
+                dirNum = 3 - dirNum;
             }
-            
+
         }
 
         System.out.println(r + " " + c);
