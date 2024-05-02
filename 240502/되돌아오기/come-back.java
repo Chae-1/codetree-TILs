@@ -11,7 +11,7 @@ public class Main {
         int nx = 1000;
         int ny = 1000;
         int time = 0;
-        int firstTimeToZero = 0;
+        int firstTimeToZero = -1;
         arr = new int[2001][2001];
 
         for (int i = 0; i < n; i++) {
