@@ -29,13 +29,14 @@ public class Main {
         for (int i = 0; i < 4; i++) {
             int nx = dx[i] + c;
             int ny = dy[i] + r;
-            if (ny < 1 || ny > n || nx < 1 || nx > n) {
-                continue;
-            }
-
-            if (arr[ny][nx] == 1)
+            if (!inRange(nx, ny, n) && arr[ny][nx] == 1) {
                 count++;
+            }
         }
         return count == 3;
+    }
+
+    private static boolean inRange(int x, int y, int n) {
+        return y < 1 || y > n || x < 1 || x > n;
     }
 }
