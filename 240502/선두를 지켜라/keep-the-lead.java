@@ -35,25 +35,26 @@ public static void main(String[] args) {
         for (int i = 1; i < time; i++) {
             diff[i] = A[i] - B[i];
         }
-        // 속도의 차이의 부호가 이전 다르면, 선두가 바뀐다.
-        // 현재 속도와 이전 속도의 곱이 음수면 선두가 바뀐다.
-        int result = 0;
         // diff가 음수이면 B가 앞서있다.
         // diff가 양수, 0이면 A가 앞서있다.
         // 0이면 판단하지 않는다.
-        boolean beforeResult = diff[1] < 0 ? true : false;
-        for (int i = 2; i < time; i++) {
-            // diff가 0이면 방향이 바뀌지 않은 것이다.
-            if (diff[i] == 0) {
-                continue;
+        int result = 0;
+        int leader = 0; // A가 앞서면 1, B가 앞서면 1 저장
+        for (int i = 1; i < time; i++) {
+            if (diff[i] > 0) {
+                // 이전 선두가 B 이면, result 1 증가
+                if (leader == 2) {
+                    result++;
+                }
+                leader = 1;
+            } else if (diff[i] < 0) {
+                if (leader == 1) {
+                    result++;
+                }
+                leader = 2;
             }
+        }   
 
-            boolean currentResult = diff[i] < 0 ? true : false;
-            if (currentResult != beforeResult) {
-                result++;
-                beforeResult = currentResult;
-            }
-        }
         System.out.println(result);
     }
 }
