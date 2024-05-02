@@ -3,12 +3,10 @@ public class Main {
     static int A[] = new int[1_000_001];
     static int B[] = new int[1_000_001];
     
-    static int PROCEEDING_A = 1;
-    static int PROCEEDING_B = 2;
 
-    public static void main(String[] args) {
+public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
-                Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
 
@@ -17,7 +15,8 @@ public class Main {
             int v = sc.nextInt();
             int t = sc.nextInt();
             for (int j = 0; j < t; j++) {
-                A[time++] = A[time - 1] + v;
+                A[time] = A[time - 1] + v;
+                time++;
             }
         }
 
@@ -26,7 +25,8 @@ public class Main {
             int v = sc.nextInt();
             int t = sc.nextInt();
             for (int j = 0; j < t; j++) {
-                B[time++] = B[time - 1] + v;
+                B[time] = B[time - 1] + v;
+                time++;
             }
         }
 
@@ -41,21 +41,19 @@ public class Main {
         // diff가 음수이면 B가 앞서있다.
         // diff가 양수, 0이면 A가 앞서있다.
         // 0이면 판단하지 않는다.
-        // lead 가 1이면 A가, 2이면 B가 앞서있다.
-        int lead = diff[1] >= 0 ? 1 : 2;
+        boolean beforeResult = diff[1] < 0 ? true : false;
         for (int i = 2; i < time; i++) {
-            // 0인 경우는 lead가 바뀌지 않으니 체크 X
+            // diff가 0이면 방향이 바뀌지 않은 것이다.
             if (diff[i] == 0) {
                 continue;
             }
-            
-            int currentLead = diff[i] >= 0 ? 1 : 2;
-            if (currentLead != lead) {
+
+            boolean currentResult = diff[i] < 0 ? true : false;
+            if (currentResult != beforeResult) {
                 result++;
-                lead = currentLead;
+                beforeResult = currentResult;
             }
         }
         System.out.println(result);
-
     }
 }
