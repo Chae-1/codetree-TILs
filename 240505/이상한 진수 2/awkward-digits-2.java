@@ -1,5 +1,9 @@
 import java.util.*;
 public class Main {
+    // 출발 위치는 왼쪽 상단, 즉 0, 0에서 시작한다.
+    // 시작, 도착 지점을 제외하고 점프를 하여 도달한 위치가 2곳이어야 한다.
+    // 시작, 도착 지점을 제외하고
+
     private static int binaryToDecimal(String a) {
         int result = 0;
         int base = 1;
@@ -23,8 +27,14 @@ public class Main {
                 a[i] = '1';
                 break;
             }
+
+            if (i + 1 == a.length) {
+                a[i] = a[i] == '0' ? '1' : '0';
+            }
         }
 
         System.out.println(binaryToDecimal(String.valueOf(a)));
     }
+
+
 }
