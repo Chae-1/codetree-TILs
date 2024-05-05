@@ -32,7 +32,7 @@ public class Main {
             int n2 = (num2 / pow) % 10;
             int n3 = (num3 / pow) % 10;
             // 각 자리수의 합이 10이 넘지 않은 수여야 한다.
-            if (n1 + n2 + n3 > 10) {
+            if (n1 + n2 + n3 >= 10) {
                 return false;
             }
         }
