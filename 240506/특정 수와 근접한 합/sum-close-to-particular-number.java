@@ -19,7 +19,7 @@ public class Main {
         }
         // 숫자 두 개를 제외하고 s와의 차의 절대 값이 가장 작은 수를 선택한다.
         int closed = closedSumExceptTwoNumber(s, sum, arr);
-        System.out.println(closed - s);
+        System.out.println(Math.abs(closed - s));
     }
 
     private static int closedSumExceptTwoNumber(int target, int sum, int[] arr) {
