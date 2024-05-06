@@ -18,7 +18,9 @@ public class Main {
 
         int result = simulate();
         System.out.println(result);
-        System.out.println(midY + " " + midX);
+        if (result != 0) {
+            System.out.println(midY + " " + midX);
+        }
     }
 
     private static int simulate() {
@@ -29,7 +31,7 @@ public class Main {
                 }
             }
         }
-        return -1;
+        return 0;
     }
 
     private static boolean isWin(int y, int x) {
