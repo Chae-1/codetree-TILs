@@ -11,7 +11,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int piece = sc.nextInt();
             int p = sc.nextInt();
-            pos[p] = piece;
+            pos[p] += piece;
         }
 
         // 2 5 8
