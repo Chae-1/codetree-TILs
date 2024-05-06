@@ -1,6 +1,6 @@
 import java.util.*;
 public class Main {
-    static int MAX_N = 101;
+    static int MAX_N = 401;
     static int[] pos = new int[MAX_N];
     
     public static void main(String[] args) {
