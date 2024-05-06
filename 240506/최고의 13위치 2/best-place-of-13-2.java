@@ -17,9 +17,16 @@ public class Main {
                 int pick1 = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
                 for (int k = i; k < n; k++) {
                     for (int l = 0; l < n - 2; l++) {
-                        if (k == i && l == j) {
+                        if (k == i && l + 2 == j) {
+                            l += 5;
                             continue;
                         }
+
+                        if (k == i && l == j) {
+                            l += 3;
+                            continue;
+                        }
+
                         max = Math.max(pick1 + arr[k][l] + arr[k][l + 1] + arr[k][l + 2], max);
                     }
                 }
