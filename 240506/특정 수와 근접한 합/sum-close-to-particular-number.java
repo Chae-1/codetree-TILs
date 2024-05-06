@@ -33,8 +33,14 @@ public class Main {
                 int temp = sum - arr[i] - arr[j];
                 int curDiff = Math.abs(temp - target);
 
-                if (diff >= curDiff) {
-                    result = result > temp ? temp : result;
+                if(diff == curDiff) {
+                    // diff == curDiff 이면,
+                    // 둘 중 큰 수를 선택한다.
+                    result = result > temp ? result : temp;
+                }
+
+                if (diff > curDiff) {
+                    result = temp;
                     diff = curDiff;
                 }
             }
