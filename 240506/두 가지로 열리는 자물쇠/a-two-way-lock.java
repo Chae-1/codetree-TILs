@@ -44,6 +44,10 @@ public class Main {
                     afterDial = afterDial + n;
                 }
 
+                if (afterDial > n) {
+                    afterDial = afterDial % n + 1;
+                }
+
                 if (afterDial == numbers[i]) {
                     matchComb = true;
                     break;
