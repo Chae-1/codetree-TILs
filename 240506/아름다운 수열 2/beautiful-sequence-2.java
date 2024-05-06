@@ -15,11 +15,11 @@ public class Main {
             B[i] = sc.nextInt();
         }
 
-        
+
         int result = 0;
         for (int i = 0; i <= n - m; i++) {
             boolean[] check = new boolean[m];
-            
+
             // 1. A에서 m개 만큼의 부분 수열을 구한다.
             for (int j = i; j < i + m; j++) {
                 // 부분 수열에서 B 수열의 수가 존재하는 지 확인
@@ -27,10 +27,11 @@ public class Main {
                     // B 수열의 중복을 허용하지 않고, 포함되어있는 수라면
                     if (B[k] == A[j] && !check[k]) {
                         check[k] = true;
+                        break;
                     }
                 }
             }
-            
+
             // 전부 들어가 있다면, result ++;
             if (isAllMatch(check)) {
                 result++;
