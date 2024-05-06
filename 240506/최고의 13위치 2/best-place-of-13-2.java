@@ -12,7 +12,7 @@ public class Main {
 
         // 격자 두개를 잡아야한다.
         int max = Integer.MIN_VALUE;
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n - 2; j++) {
                 int pick1 = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
                 for (int k = i; k < n; k++) {
