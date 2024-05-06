@@ -1,6 +1,13 @@
 import java.util.*;
 public class Main {
-public static void main(String[] args) {
+    // 8방향으로 LEE라는 문자열이 나오는 횟수를 구하라.
+    // L이 등장하는 위치에서 8방향으로 탐색
+
+    // 오른쪽 위 대각선,
+    // 오른쪽 아래 대각선
+    // 왼쪽 위 대각선
+    // 왼쪽 아래 대각선
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int s = sc.nextInt();
@@ -17,16 +24,17 @@ public static void main(String[] args) {
 
     private static int closedSumExceptTwoNumber(int target, int sum, int[] arr) {
 
-        int result = 0;
+        int result = Integer.MAX_VALUE;
         int diff = Integer.MAX_VALUE;
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 // i, j 번째 수를 제외하고 더했을 때 target과 가장 가까운 수를 구한다.
                 // 두 수를 뺐을 때 차이가 가장 적은 수
                 int temp = sum - arr[i] - arr[j];
-                int curDiff = Math.abs(target - temp);
-                if (diff > curDiff) {
-                    result = temp;
+                int curDiff = Math.abs(temp - target);
+
+                if (diff >= curDiff) {
+                    result = result > temp ? temp : result;
                     diff = curDiff;
                 }
             }
