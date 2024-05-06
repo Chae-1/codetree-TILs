@@ -28,15 +28,7 @@ public class Main {
                     if (arr[j] == 'H')
                         countH++;
 
-                    if (countG != 0 && countH != 0 && countH == countG) {
-                        size = Math.max(i - j, size);
-                    }
-
-                    if (countG == 0 && countH != 0) {
-                        size = Math.max(i - j, size);
-                    }
-
-                    if (countG != 0 && countH == 0) {
+                    if (countG == 0 || countH == 0 || countH == countG) {
                         size = Math.max(i - j, size);
                     }
                 }
