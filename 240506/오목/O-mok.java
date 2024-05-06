@@ -36,7 +36,7 @@ public class Main {
         if (board[y][x] == 0)
             return false;
 
-        if (toRight(y, x) || toBottom(y, x) || toDiagonal(y, x)) {
+        if (toRight(y, x) || toBottom(y, x) || toLeftDiagonal(y, x) || toRightDiagonal(y, x)) {
             return true;
         }
 
@@ -46,11 +46,10 @@ public class Main {
     // 현재위치에서 대각선, 아래, 오른쪽에서 5칸 연속해서 start
 
     private static boolean inRange(int y, int x) {
-        return x >= 0 && x < 19 && y >= 0 && y < 19;
+        return x >= 1 && x < 20 && y >= 1 && y < 20;
     }
 
-    private static boolean toDiagonal(int y, int x) {
-        int color = board[y][x];
+    private static boolean toRightDiagonal(int y, int x) {
         for (int i = 1; i < 5; i++) {
             if (!inRange(y + i, x + i) || board[y][x] != board[y + i][x + i]) {
                 return false;
@@ -61,8 +60,20 @@ public class Main {
         return true;
     }
 
+    private static boolean toLeftDiagonal(int y, int x) {
+        for (int i = 1; i < 5; i++) {
+            if (!inRange(y + i, x - i) || board[y][x] != board[y + i][x - i]) {
+                return false;
+            }
+        }
+        midY = y + 2;
+        midX = x - 2;
+        return true;
+    }
+
+
+
     private static boolean toBottom(int y, int x) {
-        int color = board[y][x];
         for (int i = 1; i < 5; i++) {
             if (!inRange(y + i, x) || board[y][x] != board[y + i][x]) {
                 return false;
@@ -74,7 +85,6 @@ public class Main {
     }
 
     private static boolean toRight(int y, int x) {
-        int color = board[y][x];
         for (int i = 1; i < 5; i++) {
             if (!inRange(y, x + i) || board[y][x] != board[y][x + i]) {
                 return false;
