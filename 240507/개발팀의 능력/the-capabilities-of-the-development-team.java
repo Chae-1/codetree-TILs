@@ -10,30 +10,41 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        int diff = -1; // -1
+
+        // 능력치가 높은 한명이 팀을 이룬다.
+        // 나머지 두명의 팀을 정한다.
+
+        // 이 인덱스를 제외하고 팀을 구성하면 된다.
+        int maxIndex = getMaxValueIndex();
+
+        int diff = -1;
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                // i, j가 한팀, k, l이 한팀
-                // 중복을 허용하지 않고 모든 조합에 대해서 확인
-                for (int k = 0; j < 5; j++) {
-                    for (int l = 0; l < 5; l++) {
-                        if (i != j && k != l && i != k && i != l && j != l && j != k) {
-                            int team1 = arr[i] + arr[j];
-                            int team2 = arr[k] + arr[l];
-                            int team3 = totalSum() - team1 - team2;
-                            if (team1 != team2 && team2 != team3 && team1 != team3) {
-                                if (diff == -1) {
-                                    diff = getDiff(team1, team2, team3);
-                                } else {
-                                    diff = Math.min(getDiff(team1, team2, team3), diff);
-                                }
-                            }
-                        }
+            for (int j = i + 1; j < 5; j++) {
+                if (i == maxIndex || j == maxIndex)
+                    continue;
+                int team1 = arr[i] + arr[j];
+                int team2 = totalSum() - team1 - arr[maxIndex];
+                int team3 = arr[maxIndex];
+
+                if (team1 != team2 && team2 != team3 && team1 != team3) {
+                    if (diff == -1) {
+                        diff = getDiff(team1, team2, team3);
+                    } else {
+                        diff = Math.min(diff, getDiff(team1, team2, team3));
                     }
                 }
             }
         }
         System.out.println(diff);
+    }
+
+    private static int getMaxValueIndex() {
+        int max = 0;
+        for (int i = 1; i < 5; i++) {
+            if (arr[max] < arr[i])
+                max = i;
+        }
+        return max;
     }
 
     private static int getDiff(int team1, int team2, int team3) {
