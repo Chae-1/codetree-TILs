@@ -12,11 +12,11 @@ public class Main {
 
         int diff = -1; // -1
         for (int i = 0; i < 5; i++) {
-            for (int j = i + 1; j < 5; j++) {
+            for (int j = 0; j < 5; j++) {
                 // i, j가 한팀, k, l이 한팀
                 // 중복을 허용하지 않고 모든 조합에 대해서 확인
                 for (int k = 0; j < 5; j++) {
-                    for (int l = k + 1; l < 5; l++) {
+                    for (int l = 0; l < 5; l++) {
                         if (i != k && j != l && i != l && j != k) {
                             int team1 = arr[i] + arr[j];
                             int team2 = arr[k] + arr[l];
