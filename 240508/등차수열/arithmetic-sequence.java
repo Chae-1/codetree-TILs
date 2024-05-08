@@ -7,7 +7,7 @@ public class Main {
         int n = sc.nextInt();
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
-
+        arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
             min = Math.min(min, arr[i]);
