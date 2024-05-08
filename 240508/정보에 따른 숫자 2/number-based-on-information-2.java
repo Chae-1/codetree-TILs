@@ -25,7 +25,7 @@ public class Main {
             int d2 = 1001;
 
             // 현재 위치 i에서 가장 가까운 d1, d2
-            for (int j = a; j <= b; j++) {
+            for (int j = 0; j < 1001; j++) {
                 if (arr[j] == 'S') {
                     d1 = Math.min(Math.abs(i - j), d1);
                 } else if (arr[j] == 'N'){
