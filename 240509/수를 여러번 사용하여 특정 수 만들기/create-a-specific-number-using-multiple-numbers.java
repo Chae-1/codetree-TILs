@@ -10,8 +10,8 @@ public class Main {
         int aMaxCount = c / a;
         int bMaxCount = c / b;
         int closedC = 0;
-        for (int i = 1; i <= aMaxCount; i++) {
-            for (int j = 1; j <= bMaxCount; j++) {
+        for (int i = 0; i <= aMaxCount; i++) {
+            for (int j = 0; j <= bMaxCount; j++) {
                 int result = a * i + j * b;
                 if (result <= c) {
                     closedC = Math.max(closedC, result);
