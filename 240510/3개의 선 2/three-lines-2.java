@@ -28,8 +28,8 @@ public class Main {
 
         for (int i = 0; i <= 10; i++) {
             boolean allMatch = true;
-            for (int j = i + 1; j <= 10; j++) {
-                for (int k = j + 1; k <= 10; k++) {
+            for (int j = 0; j <= 10; j++) {
+                for (int k = 0; k <= 10; k++) {
                     /**
                      * 경우의 수는 4가지이다.
                      * 1. x축과 평행한 직선 3개
