@@ -15,8 +15,11 @@ public class Main {
             if (arr[i] == 0) {
                 // 2. i와 떨어져있는 왼쪽의 최대값을 찾는다.
                 int curM = Integer.MAX_VALUE;
+                boolean left = false;
+                boolean right = false;
                 for (int j = i - 1; j >= 0; j--) {
                     if (arr[j] == 1) {
+                        left = true;
                         curM = Math.min(i - j, curM);
                         break;
                     }
@@ -25,11 +28,12 @@ public class Main {
                 for (int j = i + 1; j < n; j++) {
                     if (arr[j] == 1) {
                         curM = Math.min(j - i, curM);
+                        right = true;
                         break;
                     }
                 }
 
-                max = Math.max(max, curM);
+                max = left && right ? Math.max(max, curM) : max;
             }
         }
         System.out.println(max);
