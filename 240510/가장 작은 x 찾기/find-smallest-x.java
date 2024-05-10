@@ -26,9 +26,9 @@ public class Main {
 
             if (allMatch) {
                 min = x;
+                break;
             }
         }
-
         System.out.println(min);
     }
 }
