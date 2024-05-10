@@ -15,7 +15,7 @@ public class Main {
                 // 시작 위치에서 시작하는 부분 문자열
                 String substring = s.substring(start, start + i);
                 // 부분 문자열의 마지막 인덱스부터 확인한다.
-                for (int j = start + i; j <= n - i; j++) {
+                for (int j = start + 1; j <= n - i; j++) {
                     String matchString = s.substring(j, j + i);
                     if (substring.equals(matchString)) {
                         anyMatch = true;
