@@ -5,7 +5,7 @@ public class Main {
     static int[] x = new int[MAX_N];
     static int[] y = new int[MAX_N];
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
