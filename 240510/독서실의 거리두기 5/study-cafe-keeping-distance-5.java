@@ -11,29 +11,21 @@ public class Main {
         // 위치
         int max = 0;
         for (int i = 0; i < n; i++) {
-            // 1. 비어 있는 위치를 찾는다.
             if (arr[i] == 0) {
-                // 2. i와 떨어져있는 왼쪽의 최대값을 찾는다.
-                int curM = Integer.MAX_VALUE;
-                boolean left = false;
-                boolean right = false;
-                for (int j = i - 1; j >= 0; j--) {
+                arr[i] = 1;
+                int last = -1;
+                // dist가 최대가 될 경우를 구하자.
+                int dist = Integer.MAX_VALUE;
+                for (int j = 0; j < n; j++) {
                     if (arr[j] == 1) {
-                        left = true;
-                        curM = Math.min(i - j, curM);
-                        break;
+                        if (last != -1) {
+                            dist = Math.min(j - last, dist);
+                        }
+                        last = j;
                     }
                 }
-
-                for (int j = i + 1; j < n; j++) {
-                    if (arr[j] == 1) {
-                        curM = Math.min(j - i, curM);
-                        right = true;
-                        break;
-                    }
-                }
-
-                max = left && right ? Math.max(max, curM) : max;
+                arr[i] = 0;
+                max = Math.max(max, dist);
             }
         }
         System.out.println(max);
