@@ -30,7 +30,7 @@ public class Main {
                 result[1] = a[0] - result[0];
                 for (int j = 2; j < n; j++) {
                     int candidate = a[j - 1] - result[j - 1];
-                    if (candidate >= 0) {
+                    if (candidate > 0) {
                         result[j] = candidate;
                     } else {
                         isEnd = false;
