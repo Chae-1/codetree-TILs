@@ -10,15 +10,11 @@ public class Main {
             comb[i] = sc.nextInt();
         }
 
-        int a = comb[0];
-        int b = comb[1];
-        int c = comb[2];
-        int d = comb[3];
-        for (int i = 1; i <= a; i++) {
+        for (int i = 1; i <= 40; i++) {
 
-            for (int j = i; j <= b; j++) {
-                for (int l = j; l <= c; l++) {
-                    for (int m = l; m <= d; m++) {
+            for (int j = i; j <= 40; j++) {
+                for (int l = j; l <= 40; l++) {
+                    for (int m = l; m <= 40; m++) {
                         if (isMatch(i, j, l, m)) {
                             System.out.println(i + " " + j + " " + l + " " + m);
                         }
