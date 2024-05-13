@@ -39,9 +39,9 @@ public class Main {
                 }
             }
 
-            if (maxBoomCount < curMaxCount) {
+            if (maxBoomCount <= curMaxCount) {
                 maxBoomCount = curMaxCount;
-                maxBoomNum = boom;
+                maxBoomNum = Math.max(boom, maxBoomNum);
             }
 
         }
