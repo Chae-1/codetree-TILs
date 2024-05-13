@@ -50,7 +50,7 @@ public class Main {
             int candidate = a[j - 1] - result[j - 1];
             // 숫자들이 단 한번 씩만 등장한다.
             // 등장하는 숫자를 확인하면 끝
-            if (candidate > 0 && !alreadyInSequence[candidate]) {
+            if (candidate > 0 && candidate <= n && !alreadyInSequence[candidate]) {
                 alreadyInSequence[candidate] = true;
                 result[j] = candidate;
             } else {
