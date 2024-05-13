@@ -43,7 +43,7 @@ public class Main {
 
         // boomCount가 가장 큰 숫자를 선택한다.
         int maxIdx = 0;
-        int maxValue = booms[maxIdx];
+        int maxValue = boomNums[maxIdx];
         for (int i = 1; i < BOOM_COUNT; i++) {
             // 터진 횟수가 크거나 같으면
             // 갱신한다.
