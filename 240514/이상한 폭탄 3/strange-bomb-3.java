@@ -21,7 +21,7 @@ public class Main {
                 // 현재 확인하고자 하는 폭탄을 만났을 때
                 if (booms[j] == boom) {
                     int prev = j;
-                    int cur = j;
+                    int cur = j + 1;
                     // k 거리 안에 있는 동일한 폭탄을 탐색
                     int boomCount = 0;
                     while (cur <= prev + k) {
@@ -35,11 +35,12 @@ public class Main {
                     j = cur - 1;
                     // 확인한 범위에서 폭탄이 많이 터졌다면, 갱신
                     // 이전 범위가 더 많이 터졌다면, 유지
-                    curMaxCount = Math.max(curMaxCount, boomCount);
+                    if (boomCount > 0)
+                        curMaxCount = Math.max(curMaxCount, boomCount);
                 }
             }
 
-            if (maxBoomCount <= curMaxCount) {
+            if (curMaxCount != 0 && maxBoomCount <= curMaxCount) {
                 maxBoomCount = curMaxCount;
                 maxBoomNum = Math.max(boom, maxBoomNum);
             }
