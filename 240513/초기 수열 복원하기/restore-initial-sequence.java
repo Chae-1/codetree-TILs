@@ -25,12 +25,16 @@ public class Main {
             // 첫번째 숫자를 결정할 수 있다면
             // 그 뒤의 조합을 확인 할 수 있다.
             boolean isEnd = true;
+            boolean[] alreadyInSequence = new boolean[n + 1];
             if (a[0] > i) {
                 result[0] = i;
                 result[1] = a[0] - result[0];
                 for (int j = 2; j < n; j++) {
                     int candidate = a[j - 1] - result[j - 1];
-                    if (candidate > 0) {
+                    // 숫자들이 단 한번 씩만 등장한다.
+                    // 등장하는 숫자를 확인하면 끝
+                    if (candidate > 0 && alreadyInSequence[candidate]) {
+                        alreadyInSequence[candidate] = true;
                         result[j] = candidate;
                     } else {
                         isEnd = false;
