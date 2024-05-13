@@ -7,6 +7,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+
+        if (n == 1) {
+            // n == 1이면 수열은 한개 존재한다.
+            // n을 가지는 수열 하나
+            System.out.println(n);
+            return ;
+        }
+
         a = new int[n - 1];
         for (int i = 0; i < n - 1; i++) {
             a[i] = sc.nextInt();
@@ -20,7 +28,7 @@ public class Main {
             if (a[0] > i) {
                 result[0] = i;
                 result[1] = a[0] - result[0];
-                for (int j = 2; j < n ; j++) {
+                for (int j = 2; j < n; j++) {
                     int candidate = a[j - 1] - result[j - 1];
                     if (candidate >= 0) {
                         result[j] = candidate;
