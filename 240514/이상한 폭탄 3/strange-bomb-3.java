@@ -24,7 +24,7 @@ public class Main {
                     int cur = j + 1;
                     // k 거리 안에 있는 동일한 폭탄을 탐색
                     int boomCount = 0;
-                    while (cur <= prev + k) {
+                    while (cur < n && cur <= prev + k) {
                         // 현재 탐색 위치의 폭탄 번호가 이전 폭탄 번호와 동일한 경우
                         if (booms[cur] == boom) {
                             prev = cur;
