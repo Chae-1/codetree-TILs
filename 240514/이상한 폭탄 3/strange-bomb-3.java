@@ -1,8 +1,10 @@
 import java.util.Scanner;
-
 public class Main {
     static int MAX_N = 101;
+    static int BOOM_COUNT = 1000000;
     static int[] booms = new int[MAX_N];
+    static boolean[] explode = new boolean[MAX_N];
+    static int[] boomNum = new int[BOOM_COUNT];
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -12,40 +14,44 @@ public class Main {
             booms[i] = sc.nextInt();
         }
 
-        int maxBoomNum = 0;
-        int maxBoomCount = 0;
-        // 폭탄의 번호
-        for (int boom = 0; boom < 1_000_001; boom++) {
-            int curMaxCount = 0;
-            for (int j = 0; j < n; j++) {
-                // 현재 확인하고자 하는 폭탄을 만났을 때
-                if (booms[j] == boom) {
-                    int prev = j;
-                    int cur = j + 1;
-                    // k 거리 안에 있는 동일한 폭탄을 탐색
-                    int boomCount = 0;
-                    while (cur < n && cur <= prev + k) {
-                        // 현재 탐색 위치의 폭탄 번호가 이전 폭탄 번호와 동일한 경우
-                        if (booms[cur] == boom) {
-                            prev = cur;
-                            boomCount++;
-                        }
-                        cur++;
-                    }
-                    j = cur - 1;
-                    // 확인한 범위에서 폭탄이 많이 터졌다면, 갱신
-                    // 이전 범위가 더 많이 터졌다면, 유지
-                    if (boomCount > 0)
-                        curMaxCount = Math.max(curMaxCount, boomCount);
+        for (int i = 0; i < n; i++) {
+            // 연쇄적으로 터진 폭탄의 횟수를 카운트 할 수 있다.
+            for (int j = i + 1; j < n; j++) {
+                // 거리가 k 이상이 되는 경우 바로 빠져나간다.
+                if (j - i > k)
+                    break;
+                // i, j가 k거리 안에 있으면 같은 폭탄이 아니면
+                if (booms[i] != booms[j]) {
+                    continue;
+                }
+
+                // i번째 폭탄이 터질 수 있으면
+                // 해당 폭탄 번호의 터짓 횟수를 증가시킨다.
+                if (explode[i] == false) {
+                    boomNum[booms[i]]++;
+                    explode[i] = true;
+                }
+
+                // j번째 폭탄이 터질 수 있으면
+                // 해당 폭탄 번호의 터진 횟수를 증가시킨다.
+                if (explode[j] == false) {
+                    boomNum[booms[j]]++;
+                    explode[j] = true;
                 }
             }
-
-            if (curMaxCount != 0 && maxBoomCount <= curMaxCount) {
-                maxBoomCount = curMaxCount;
-                maxBoomNum = Math.max(boom, maxBoomNum);
-            }
-
         }
-        System.out.println(maxBoomNum);
+
+        // boomCount가 가장 큰 숫자를 선택한다.
+        int maxIdx = 0;
+        int maxValue = booms[maxIdx];
+        for (int i = 1; i < BOOM_COUNT; i++) {
+            // 터진 횟수가 크거나 같으면
+            // 갱신한다.
+            if (boomNum[i] >= maxValue) {
+                maxIdx = i;
+                maxValue = boomNum[i];
+            }
+        }
+        System.out.println(maxIdx);
     }
 }
