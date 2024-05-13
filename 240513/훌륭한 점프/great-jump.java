@@ -18,6 +18,7 @@ public class Main {
             }
         }
 
+
         // 경로상 가능한 최댓값이 최소가 되도록 한다.
         int curMin = 0;
         // max ~ arr[0] 까지 최댓값이 최소가 될 수 있다.
@@ -40,6 +41,10 @@ public class Main {
             if (arr[i] <= availableMax) {
                 availableBlock[cnt++] = i;
             }
+        }
+
+        if (availableBlock[cnt - 1] != n - 1) {
+            return false;
         }
 
         for (int i = 1; i < cnt; i++) {
