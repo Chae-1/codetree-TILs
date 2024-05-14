@@ -30,7 +30,23 @@ public class Main {
             }
         }
 
-        if (l > 0) maxH++;
+
+        // maxH보다 작은 값을 전부 1씩 증가시켜보자.
+        // maxH인 요소를 증가시킨다.
+        for (int i = 0; i < n; i++) {
+            if (arr[i] >= maxH) {
+                arr[i]++;
+            }
+        }
+
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] >= maxH + 1) {
+                count++;
+            }
+        }
+
+        maxH = count > maxH ? maxH + 1 : maxH;
 
         System.out.println(maxH);
     }
