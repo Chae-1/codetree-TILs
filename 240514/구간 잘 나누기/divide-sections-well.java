@@ -33,7 +33,7 @@ public class Main {
                 }
             }
 
-            if (canDivide) {
+            if (canDivide && blind <= m) {
                 System.out.println(min);
                 break;
             }
