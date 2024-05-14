@@ -47,7 +47,7 @@ public class Main {
         for (int i = 1; i < BOOM_COUNT; i++) {
             // 터진 횟수가 크거나 같으면
             // 갱신한다.
-            if (boomNum[i] >= maxValue) {
+            if (boomNum[i] > 0 && boomNum[i] >= maxValue) {
                 maxIdx = i;
                 maxValue = boomNum[i];
             }
