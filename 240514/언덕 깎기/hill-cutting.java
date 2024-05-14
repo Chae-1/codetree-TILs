@@ -1,38 +1,42 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
-    static int MAX_N = 1001;
-    static int[] hills = new int[MAX_N];
-    static int k = 17;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            hills[i] = sc.nextInt();
-        }
+        int N = sc.nextInt();
+        List<Integer> list = new ArrayList<>();
 
-        // 높이가 height 를 기준으로 [height, height + 17] 범위로 만든다고 했을 때 최소 비용을 산출한다.
+        for (int i = 0; i < N; i++) {
+            int height = sc.nextInt();
+            list.add(height);
+        }
+        Collections.sort(list);
+        sc.close();
+        System.out.println(solve(list));
+    }
+
+    private static int solve(List<Integer> list) {
         int minCost = Integer.MAX_VALUE;
-        for (int height = 0; height < 101; height++) {
-            int cost = 0;
-            for (int i = 0; i < n; i++) {
-                int curHeight = hills[i];
-                // [height, height + k] 범위안으로 만들기 위해서
-                // curHeight 가 height 보다 높다.
-                // curHeight 가 height 보다 높을 때 깎는다.
-                // curHeight가 범위 밖일 때
-                if (curHeight < height) {
-                    cost += (height - curHeight) * (height - curHeight);
-                }
 
-                if (curHeight > height + k) {
-                    cost += (curHeight - (height + k)) * (curHeight - (height + k));
-                }
-            }
-            minCost = Math.min(cost, minCost);
+        for (int minH = list.get(0); minH <= list.get(list.size() - 1); minH++) {
+            int cost = calculateCost(minH, minH + 17, list);
+            minCost = Math.min(minCost, cost);
         }
-        System.out.println(minCost);
+        return minCost;
+    }
+
+    private static int calculateCost(int minH, int maxH, List<Integer> list) {
+        int cost = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) < minH) {
+                cost += (minH - list.get(i)) * (minH - list.get(i));
+            } else if (list.get(i) > maxH) {
+                cost += (list.get(i) - maxH) * (list.get(i) - maxH);
+            }
+        }
+        return cost;
     }
 }
