@@ -1,42 +1,37 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
+
     static int MAX_N = 1001;
     static int[] hills = new int[MAX_N];
+    static int k = 17;
 
     public static void main(String[] args) {
-        // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int min = Integer.MAX_VALUE;
-        int minIdx = 0;
         for (int i = 0; i < n; i++) {
             hills[i] = sc.nextInt();
-            if (min > hills[i]) {
-                min = hills[i];
-                minIdx = i;
-            }
         }
 
+        // 높이가 height 를 기준으로 [height, height + 17] 범위로 만든다고 했을 때 최소 비용을 산출한다.
         int minCost = Integer.MAX_VALUE;
-        for (int i = 0; i < n; i++) {
-            int base = hills[i];
-            int up = base - min - 17;
-            int totalCost = up > 0 ? up * up : 0;
-            hills[minIdx] = up > 0 ? min + up : min;
-            for (int j = 0; j < n; j++) {
-                if (i == j)
-                    continue;
-                if (base < hills[j]) {
-                    int cost = hills[j] - hills[minIdx] - 17;
-                    totalCost += cost > 0 ? cost * cost : 0;
-                } else if (base > hills[j]){
-                    int cost = base - hills[j] - 17;
-                    totalCost += cost > 0 ? cost * cost : 0;
+        for (int height = 0; height < 101; height++) {
+            int cost = 0;
+            for (int i = 0; i < n; i++) {
+                int curHeight = hills[i];
+                // [height, height + k] 범위안으로 만들기 위해서
+                // curHeight 가 height 보다 높다.
+                // curHeight 가 height 보다 높을 때 깎는다.
+                // curHeight가 범위 밖일 때
+                if (curHeight < height) {
+                    cost += (height - curHeight) * (height - curHeight);
+                }
+
+                if (curHeight > height + k) {
+                    cost += (curHeight - (height + k)) * (curHeight - (height + k));
                 }
             }
-            hills[minIdx] = min;
-            minCost = Math.min(minCost, totalCost);
+            minCost = Math.min(cost, minCost);
         }
         System.out.println(minCost);
     }
