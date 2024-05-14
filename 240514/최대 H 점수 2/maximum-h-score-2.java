@@ -33,9 +33,11 @@ public class Main {
 
         // maxH보다 작은 값을 전부 1씩 증가시켜보자.
         // maxH인 요소를 증가시킨다.
-        for (int i = 0; i < n; i++) {
-            if (arr[i] >= maxH) {
-                arr[i]++;
+        if (l > 0) {
+            for (int i = 0; i < n; i++) {
+                if (arr[i] >= maxH) {
+                    arr[i]++;
+                }
             }
         }
 
