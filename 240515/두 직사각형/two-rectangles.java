@@ -36,6 +36,6 @@ public class Main {
     private static boolean isOverlapped(int x1, int x2, int y1, int y2, int a1, int b1, int a2, int b2) {
 
         // x축, y축 직선 두개가 겹처야 사각형이 겹친다.
-        return isOverlappedLine(x1, x2, a1, a2) && isOverlappedLine(y1, y2, b1, b2);
+        return !(y2 < b1 || b2 < y1 || x2 < a1 || a2 < x1);
     }
 }
