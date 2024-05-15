@@ -21,20 +21,23 @@ public class Main {
     }
 
     private static int calMinCost() {
-        // 최대 나올 수 있는 비용이
-        int minCost = 5;
-        // 1. i를 고정 시키고 나머지 둘을 움직일 때
+        // 현재 숫자랑 위치가 다른 숫자들 중 연속되지 않은 숫자의 개수를 구한다.
+        // ex ) 1 2 3
+        // 1 0 1 -> 0이라는 숫자가 있다는 것은
+        // 이 값을 기준으로 양쪽 두개의 숫자가 연속된다는 것을 의미한다.
+        // ex ) 1 4 5
+        // ->   2 1 1
+        // ->   1이 있다는 것은 한개의 숫자만 움직이면 모든 수가 연속된다는 것을 의미한다.
+        // -> 이 연속되지 않은 숫자의 개수를 구해서 가장 작은 값이 minCost가 될 것이다 .
+        int minCost = Integer.MAX_VALUE;
         for (int i = 0; i < 3; i++) {
             int cost = 0;
             for (int j = 0; j < 3; j++) {
-                if (i == j) {
-                    continue;
-                }
-                // 세우고자 하는 위치 차이
-                int diff = Math.abs(i - j);
-                if (Math.abs(x[i] - x[j]) != diff) {
-                    cost++;
-                }
+                 if (i == j)
+                     continue;
+                 if (Math.abs(x[i] - x[j]) != 1) {
+                     cost++;
+                 }
             }
             minCost = Math.min(minCost, cost);
         }
