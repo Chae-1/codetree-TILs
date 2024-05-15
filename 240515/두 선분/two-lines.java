@@ -25,13 +25,13 @@ public class Main {
         // 선분 x1 - x2가
         // 선분 x3 - x4보다 앞에 위치했을 때
         // x3가 x3보다 크다면 교차한다.
-        if (x2 > x3) {
-            return true;
+        if (x2 < x3) {
+            return false;
         }
 
-        if (x4 > x2) {
-            return true;
+        if (x4 < x1) {
+            return false;
         }
-        return false;
+        return true;
     }
 }
