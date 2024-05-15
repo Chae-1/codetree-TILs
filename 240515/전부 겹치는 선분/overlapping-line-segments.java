@@ -19,12 +19,15 @@ public class Main {
     }
 
     public static boolean allOverlapped() {
-        int baseX1 = x1[0];
-        int baseX2 = x2[0];
-        for (int i = 1; i < n; i++) {
-            if (baseX2 < x1[i]) return false;
-            if (baseX1 > x2[i]) return false;
+        for (int i = 0; i < n; i++) {
+            int baseX1 = x1[i];
+            int baseX2 = x2[i];
+            for (int j = i + 1; j < n; j++) {
+                if (baseX2 < x1[j]) return false;
+                if (baseX1 > x2[j]) return false;
+            }
         }
+        
         return true;
     }
 
