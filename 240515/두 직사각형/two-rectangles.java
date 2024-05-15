@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
+    static int MAX_N = 101;
+    static int[] arr = new int[MAX_N];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int x1 = sc.nextInt();
@@ -31,7 +33,7 @@ public class Main {
         return true;
     }
 
-    private static boolean isOverlapped(int x1, int y1, int x2, int y2, int a1, int b1, int a2, int b2) {
+    private static boolean isOverlapped(int x1, int x2, int y1, int y2, int a1, int b1, int a2, int b2) {
 
         // x축, y축 직선 두개가 겹처야 사각형이 겹친다.
         return isOverlappedLine(x1, x2, a1, a2) && isOverlappedLine(y1, y2, b1, b2);
