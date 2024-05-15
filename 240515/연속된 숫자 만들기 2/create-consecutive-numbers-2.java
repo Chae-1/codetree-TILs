@@ -21,21 +21,15 @@ public class Main {
     }
 
     private static int calMinCost() {
-        // 현재 숫자랑 위치가 다른 숫자들 중 연속되지 않은 숫자의 개수를 구한다.
-        // ex ) 1 2 3
-        // 1 0 1 -> 0이라는 숫자가 있다는 것은
-        // 이 값을 기준으로 양쪽 두개의 숫자가 연속된다는 것을 의미한다.
-        // ex ) 1 4 5
-        // ->   2 1 1
-        // ->   1이 있다는 것은 한개의 숫자만 움직이면 모든 수가 연속된다는 것을 의미한다.
-        // -> 이 연속되지 않은 숫자의 개수를 구해서 가장 작은 값이 minCost가 될 것이다 .
         int minCost = Integer.MAX_VALUE;
         for (int i = 0; i < 3; i++) {
             int cost = 0;
             for (int j = 0; j < 3; j++) {
                  if (i == j)
                      continue;
-                 if (Math.abs(x[i] - x[j]) != 1) {
+                 // a - b 사이에 숫자 하나를 추가로 끼울 수 있다.
+                // 그래서 차이가 2를 넘어서면 이동시켜야한다.
+                 if (Math.abs(x[i] - x[j]) > 2) {
                      cost++;
                  }
             }
