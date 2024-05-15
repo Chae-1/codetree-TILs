@@ -27,8 +27,7 @@ public class Main {
     private static int calMinCost() {
         // 1. 연속된 수라면
         Arrays.sort(x);
-        int avg = (x[0] + x[2]) / 2;
-        if (avg == x[1]) {
+        if (x[1] - x[0] == 1 && x[2] - x[1] == 1) {
             return 0;
         }
         for (int i = 0; i < 3; i++) {
