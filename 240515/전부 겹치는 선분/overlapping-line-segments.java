@@ -21,7 +21,7 @@ public class Main {
 
         // 어느 선분이라도 시작점이 다른 선분의 끝점보다 뒤에 오면
         // 겹칠 수 있는 지점이 없다.
-        if (maxX1 < minX2) {
+        if (maxX1 <= minX2) {
             System.out.println("Yes");
         } else {
             System.out.println("No");
