@@ -32,11 +32,13 @@ public class Main {
             // 차이가 1이 날때 이기는 경우
             int diffOne = 0;
             for (int j = 0; j < n; j++) {
-                if (Math.abs(a[j] - b[j]) == 1) {
+                int afterOne = (a[j] + 1) % 3 == 0 ? 1: (a[j] + 1) % 3;
+                if (afterOne == b[j]) {
                     diffOne++;
                 }
 
-                if (Math.abs(a[j] - b[j]) == 2) {
+                int afterTwo = (a[j] + 2) % 3 == 0 ? 1 : (a[j] + 2) % 3;
+                if (afterTwo == b[j]) {
                     diffTwo++;
                 }
             }
