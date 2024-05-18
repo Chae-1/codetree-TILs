@@ -52,13 +52,14 @@ public class Main {
         int lastOnePos = 0;
 
         // i는 현재 위치
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             // 1이 등장하는 위치에서 탐색한다.
             if (sits[i] == 1) {
                 // 이전 위치도 만약 1 이었다면, 거리를 계산한다.
                 if (sits[lastOnePos] == 1) {
                     // 만약, 거리가 최대라면 해당 위치를 기억하고, 그 길이를 기억한다.
-                    if (lastOnePos - i < maxDistanceWithTwo) {
+                    if (i - lastOnePos > maxDistanceWithTwo) {
+
                         maxDistanceWithTwo = Math.max(maxDistanceWithTwo, i - lastOnePos);
                         maxPos = lastOnePos;
                     }
@@ -69,8 +70,7 @@ public class Main {
 
         // 2. 1을 가운데에 둔다.
         // 최대한 거리를 두게 된다.
-        int mid = (maxPos + (maxPos + maxDistanceWithTwo)) / 2;
+        int mid = ((maxPos) + (maxPos + maxDistanceWithTwo)) / 2;
         sits[mid] = 1;
-
     }
 }
