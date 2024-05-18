@@ -52,10 +52,11 @@ public class Main {
         a[mid] = '1';
         int minDistBetweenTwo = getMinDistBetweenTwo(n);
         a[mid] = '0';
+        
         // 마지막 위치가 0이라면, 그 자리에 1을 두고 비교한다.
-        // 13 - 8 == 5
-        if (a[n - 1] == '0' && (n - 1) - lastOnePos > maxDistBetweenTwo / 2) {
-            minDistBetweenTwo = Math.max(minDistBetweenTwo, n - 1 - lastOnePos);
+        if (a[n - 1] == '0') {
+            a[n - 1] = '1';
+            minDistBetweenTwo = Math.max(minDistBetweenTwo, getMinDistBetweenTwo(n));
         }
         System.out.println(minDistBetweenTwo);
     }
