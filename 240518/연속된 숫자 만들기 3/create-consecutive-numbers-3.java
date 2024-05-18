@@ -15,7 +15,7 @@ public class Main {
 
     public static int maxCount() {
         // 이미 세 사람이 연달아 서 있는 경우
-        if ((a[0] + a[2]) / 2 == a[1]) {
+        if (a[0] + 1 == a[1] && a[1] + 1 == a[2]) {
             return 0;
         }
         // 1 3  6
