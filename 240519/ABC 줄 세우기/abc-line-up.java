@@ -13,9 +13,6 @@ public class Main {
 
         char[] source = Arrays.copyOf(arr, arr.length);
         Arrays.sort(arr);
-        for (char c : source) {
-            System.out.println(c);
-        }
         // A C D B
         //   B를 위치시켜주는 최선
         //
