@@ -32,8 +32,10 @@ public class Main {
     }
 
     private static void swap(char[] source, int i, int j) {
-        char temp = source[i];
-        source[i] = source[j];
-        source[j] = temp;
+        for (int k = i + 1; k <= j; k++) {
+            char temp = source[k];
+            source[k] = source[k - 1];
+            source[k - 1] = temp;
+        }
     }
 }
