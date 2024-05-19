@@ -32,7 +32,9 @@ public class Main {
     }
 
     private static void swap(char[] source, int i, int j) {
-        for (int k = i + 1; k <= j; k++) {
+        int start = Math.min(i, j);
+        int end = Math.max(i, j);
+        for (int k = start + 1; k <= end; k++) {
             char temp = source[k];
             source[k] = source[k - 1];
             source[k - 1] = temp;
