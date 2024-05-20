@@ -1,4 +1,9 @@
-import java.util.*;
+mport java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+
 public class Main {
     static char[] source;
     static char[] sorted;
@@ -8,7 +13,7 @@ public class Main {
         int n = sc.nextInt();
         source = new char[n];
         for (int i = 0; i < n; i++) {
-            source[i] = sc.next().charAt(i);
+            source[i] = sc.next().charAt(0);
         }
 
         sorted = Arrays.copyOf(source, n);
