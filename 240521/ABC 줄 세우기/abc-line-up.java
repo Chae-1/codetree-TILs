@@ -27,7 +27,7 @@ public class Main {
                 if (source[j] == sorted[i]) {
                     // j != i 라면
                     // i - j번 스왑하면 된다.
-                    for (int k = i; k < j; k++) {
+                    for (int k = i; k < j - 1; k++) {
                         swap(k, k + 1);
                         count++;
                     }
