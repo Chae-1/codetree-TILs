@@ -21,7 +21,7 @@ public class Main {
 
         // 맨 뒤에서 부터 자기 순서를 찾아가면, 저절로 제자리를 찾아 갈 것이다
         int count = 0;
-        for (int i = n - 1; i >= 0; i++) {
+        for (int i = n - 1; i >= 0; i--) {
             for (int j = 0; j < n; j++) {
 
                 if (source[j] == sorted[i]) {
